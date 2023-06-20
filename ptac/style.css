@@ -1,0 +1,95 @@
+*{margin: 0; padding: 0;}
+#tela{ width: auto; }
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rotate {transform: rotate(-3deg);}
+.rotate-inv {transform: rotate(1deg);}
+
+.card {
+  transition: transform 1.5s ease-out;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+.card:hover {transform: scale(1.1);}
+
+.no-drag {
+   -webkit-user-drag: none;
+   -khtml-user-drag: none;
+   -moz-user-drag: none;
+   -o-user-drag: none;
+}
+/* ANIMAÇÃO DA MOEDA */
+
+#moeda {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background-image: url('https://i.gifer.com/origin/71/719ea2f44c791fc07e0e811940a0232b_w200.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: pulo 0.4s ease-out;
+  animation-iteration-count: infinite;
+  display: none;
+}
+
+@keyframes pulo {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 70px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+#soco:active {
+  animation-name: soco;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+}
+
+@keyframes soco {
+  50% {
+    transform: translateX(10px) rotate(10deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+
+
+
+.accordion-item {
+    color: var(--bs-accordion-color);
+    background-color: rgba(0, 0, 0, 0) !important;
+    border: 0px !important;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+  margin: 0 auto;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+  border: 0px solid black;
+  background-color: #ddd;
+}

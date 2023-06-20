@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Jogo - Face Swap Presidents</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+   <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+
+<body onload="iniciaJogo()" class="body-img">
+
+
+    
+
+  <main>
+    <div style="width: 100%;" class="p-3">
+      <h1>Jogo da Troca de Presidentes</h1>
+      <strong class="p-2 rounded bg-light">PONTOS:</strong> <span id="pontos" class="fs-2 text-dark">0</span> <br>
+      <strong class="p-2 rounded bg-light">TEMPO RESTANTE:</strong> <span id="tempo" class=" fs-2 text-dark"></span>
+    </div>
+  
+  
+  <div id="tela"></div>
+
+    <br><br>
+
+  <h1 class="text-center">Ranking</h1>
+<div style="width: 100%; background-color: #ddd;">
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Pontuação</th>
+      </tr>
+    </thead>
+    <tbody id="table-body">
+           
+    </tbody>
+  </table>
+</div>
+
+    <br><br>
+
+  <h2 class="accordion-header">
+    <button class="accordion-button collapsed bg-transparent border-bottom border-top border-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> <h1 class="text-center">Lista de Presidentes Disponíveis</h1> </button>
+  </h2>
+  <div class="container text-center">
+    <div class="row align-center">
+      <div class="col rotate">
+        <div class="card" style="width: 18rem;">
+          <img src="https://www.archives.gov/files/topics/washingtons-birthday-circle-portal.png" class="card-img-top" alt="Imagem de George Washington">
+          <div class="card-body">
+            <h5 class="card-title fs-2">George Washington</h5>
+            <p class="card-text">George Washington nasceu em 22 de fevereiro de 1732 na Virgínia e foi o primeiro presidente dos Estados Unidos liderando o exército durante a Guerra da Independência.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col rotate">
+        <div class="card" style="width: 18rem;">
+          <img src="https://render.fineartamerica.com/images/rendered/default/flat/round-beach-towel/images/artworkimages/medium/1/abraham-lincoln-andre-koekemoer-transparent.png?&targetx=-82&targety=-46&imagewidth=959&imageheight=1151&modelwidth=788&modelheight=788&backgroundcolor=b8968a&orientation=0" class="card-img-top" alt="Imagem de Abraham Lincoln">
+          <div class="card-body">
+            <h5 class="card-title fs-2">Abraham Lincoln</h5>
+            <p class="card-text">Abraham Lincoln nasceu em 12 de fevereiro de 1809 em Kentucky e foi o 16º presidente dos Estados Unidos, liderou o país durante a Guerra Civil e é conhecido por ter libertado os escravos.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col rotate">
+        <div class="card" style="width: 18rem;">
+          <img src="https://render.fineartamerica.com/images/rendered/default/flat/round-beach-towel/images/artworkimages/medium/3/president-dwight-eisenhower-painting-war-is-hell-store.jpg?&targetx=-2&targety=-5&imagewidth=788&imageheight=1006&modelwidth=788&modelheight=788&backgroundcolor=7C6E31&orientation=0" class="card-img-top" alt="Imagem de Dwight D. Eisenhower">
+          <div class="card-body">
+            <h5 class="card-title fs-2">Dwight D. Eisenhower</h5>
+            <p class="card-text">Dwight nasceu em 14 de outubro de 1890 no Texas e foi o 34º presidente dos Estados Unidos, comandando as forças aliadas na Segunda Guerra Mundial e liderando o país durante a Guerra Fria.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col rotate">
+        <div class="card" style="width: 18rem;">
+          <img src="https://render.fineartamerica.com/images/rendered/default/flat/round-beach-towel/images/artworkimages/medium/3/barack-obama-portrait-2012-war-is-hell-store.jpg?&targetx=-2&targety=-12&imagewidth=788&imageheight=981&modelwidth=788&modelheight=788&backgroundcolor=555555&orientation=0" class="card-img-top" alt="Imagem de Barack Obama">
+          <div class="card-body">
+            <h5 class="card-title fs-2">Barack Obama</h5>
+            <p class="card-text">Barack Obama nasceu em 4 de agosto de 1961 no Havaí e foi o 44º presidente dos Estados Unidos, tendo sido o primeiro afro-americano a ocupar o cargo. Ele também é conhecido por suas políticas de saúde e meio ambiente.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col rotate">
+        <div class="card" style="width: 18rem;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Trump_Circle.png" class="card-img-top" alt="Imagem de Donald Trump">
+          <div class="card-body">
+            <h5 class="card-title fs-2">Donald Trump</h5>
+            <p class="card-text">Donald Trump nasceu em 14 de junho de 1946 em Nova York e foi o 45º presidente dos Estados Unidos, sendo conhecido por suas políticas conservadoras, incluindo reformas na imigração e comércio internacional.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col rotate">
+        <div class="card" style="width: 18rem;">
+          <img src="https://climate-xchange.org/wp-content/uploads/2019/06/Joe-Biden-circle-11.png" class="card-img-top" alt="Imagem de Joe Biden">
+          <div class="card-body">
+            <h5 class="card-title fs-2">Joe Biden</h5>
+            <p class="card-text">Joe Biden nasceu em 20 de novembro de 1942 em Scranton, Pensilvânia, e é o 46º e atual presidente dos Estados Unidos. É conhecido por suas políticas progressistas em áreas como saúde, educação e meio ambiente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+   
+
+    
+      
+  </main>
+  
+    <br><br><br>
+	<div id="moeda"></div>
+
+  
+   
+  <br>
+  
+  
+
+  
+
+  
+ <script src="script.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script>
+    Swal.fire({
+      title: 'Jogo - Face Swap Presidents',
+      text: '"Face Swap Presidents" é um jogo onde você ganha pontos trocando os rostos dos presidentes clicando na cara deles. Se conseguir clicar em todos os rostos dos presidentes você se torna o mais novo e vitalício Presidente dos EUA. Mas cuidado! Há um limite de tempo no jogo, tornando o ainda mais desafiador. Você comeca com o rosto do George Washington.',
+      width: '70%',
+      padding: '4em',
+      color: '#fff',
+      background: 'url("https://images.immediate.co.uk/production/volatile/sites/7/2019/11/GettyImages-1142985581-8de6e6d-e1575303602434.jpg")',
+      confirmButtonText: '<span onclick="relogio()">Começar Agora!</span>',
+      backdrop: 'rgba(50,50,50,0.4)'
+    })
+  </script>
+  
+</body>
+</html>
